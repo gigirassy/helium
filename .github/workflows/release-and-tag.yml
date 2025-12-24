@@ -1,4 +1,4 @@
-name: Create new release on version bump
+name: Create new release on dispatch
 
 permissions:
   contents: write
@@ -7,16 +7,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  check-release:
-    name: Create release if it makes sense
+  create-release:
+    name: Create Release
     runs-on: ubuntu-latest
     steps:
-      - name: Clone repository
+      - name: Check out repository
         uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
+        with:
+          fetch-depth: 0
+
+      - name: Determine version
+        id: info
+        run: |
+          # Example: set VERSION however you want
+          # Replace this with your own logic to define a version
+          VERSION=0.7.7-blitzwing
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Create Release
-        if: steps.info.outputs.version
         id: create_release
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844
         env:
