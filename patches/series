@@ -4,7 +4,6 @@ upstream-fixes/fix-python-codecs-deprecation.patch
 upstream-fixes/fix-macos-widget-rect.patch
 
 inox-patchset/fix-building-without-safebrowsing.patch
-inox-patchset/disable-autofill-download-manager.patch
 inox-patchset/disable-update-pings.patch
 inox-patchset/disable-rlz.patch
 
@@ -164,7 +163,6 @@ helium/core/add-disable-ech-flag.patch
 helium/core/exclude-irrelevant-flags.patch
 
 helium/core/disable-outdated-build-detector.patch
-helium/core/remove-dead-toolbar-actions.patch
 helium/core/add-component-l10n-support.patch
 helium/core/add-component-managed-schema-support.patch
 helium/core/fix-component-extension-reenablement.patch
