@@ -15,31 +15,6 @@ jobs:
         uses: actions/checkout@v4
         with: { fetch-depth: 0 }
 
-      - name: Check if a new release is needed
-        id: info
-        env:
-          COMMIT_BEFORE: ${{ github.event.before }}
-          COMMIT_AFTER: ${{ github.event.after }}
-        shell: bash
-        run: |
-          mkdir -p dummy && echo 0 > dummy/revision.txt
-          cp utils/helium_version.py .
-
-          git checkout "$COMMIT_BEFORE" \
-            && OLD_VERSION=$(python3 helium_version.py --tree . --print)
-
-          git checkout "$COMMIT_AFTER" \
-            && NEW_VERSION=$(python3 helium_version.py --tree . --print)
-
-          if [ "$OLD_VERSION" != "$NEW_VERSION" ]; then
-            echo "version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
-            {
-              printf '### Changelog\n```\n'
-              git log --oneline "$OLD_VERSION.."
-              echo '```'
-            } | tee body.md
-          fi
-
       - name: Create Release
         if: steps.info.outputs.version
         id: create_release
