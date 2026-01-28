@@ -206,7 +206,6 @@ helium/settings/reorder-settings-menu.patch
 helium/settings/add-search-engine-button.patch
 
 helium/hop/setup.patch
-helium/hop/disable-password-manager.patch
 
 helium/ui/layout-constants.patch
 helium/ui/layout-provider.patch
@@ -260,7 +259,6 @@ helium/ui/helium-color-scheme.patch
 helium/ui/improve-flags-webui.patch
 helium/ui/ublock-show-in-settings.patch
 helium/ui/licenses-in-credits.patch
-helium/ui/remove-autofill-link-to-password-manager.patch
 helium/ui/fix-caption-button-bounds.patch
 helium/ui/find-bar.patch
 helium/ui/remove-zoom-action.patch
